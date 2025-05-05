@@ -1,0 +1,71 @@
+**Case Study: Dangerous Unaligned Pointer Access in Embedded Systems**  
+**Nghiên cứu tình huống: Truy cập con trỏ sai căn chỉnh nguy hiểm trong hệ thống nhúng**
+
+**Context:**  
+**Bối cảnh:**
+A developer working with ARM Cortex-M microcontrollers used IAR Embedded Workbench and wrote the following code:  
+Một lập trình viên làm việc với vi điều khiển ARM Cortex-M đã sử dụng IAR Embedded Workbench và viết đoạn mã sau:
+
+```c
+int counter = 0;
+int *p_int;
+p_int = (int *)0x20000002;
+*p_int = 0xDEADBEEF;
+```
+
+**What Happened:**  
+**Chuyện gì đã xảy ra:**
+- The pointer `p_int` was assigned to an **unaligned address** (`0x20000002`, which is not divisible by 4).  
+  Con trỏ `p_int` được gán cho một **địa chỉ không được căn chỉnh** (`0x20000002`, không chia hết cho 4).
+- Then, the code stores a 32-bit value (`0xDEADBEEF`) to that address.  
+  Sau đó, mã lệnh ghi giá trị 32-bit (`0xDEADBEEF`) vào địa chỉ đó.
+
+**Observed Behavior:**  
+**Hành vi quan sát được:**
+- On Cortex-M4:  
+  Trên Cortex-M4:
+  - The CPU allowed this misaligned memory access.  
+    CPU cho phép truy cập bộ nhớ không căn chỉnh này.
+  - The 32-bit value got split across two addresses:  
+    Giá trị 32-bit bị chia thành hai địa chỉ:
+    - `0x20000000` (where variable `counter` was stored) and  
+      `0x20000000` (nơi biến `counter` được lưu trữ) và
+    - `0x20000004`.  
+      `0x20000004`.
+  - This **corrupted the `counter` variable** without any crash.  
+    Điều này **làm hỏng biến `counter`** mà không gây ra sự cố nào.
+- On Cortex-M0:  
+  Trên Cortex-M0:
+  - This would cause a **hard fault** due to misaligned access, crashing the program.  
+    Điều này sẽ gây ra **lỗi nghiêm trọng (hard fault)** do truy cập không căn chỉnh, làm chương trình bị sập.
+
+**Why It Is Dangerous:**  
+**Tại sao điều này nguy hiểm:**
+1. **Silent Data Corruption:** The variable `counter` was unintentionally overwritten, leading to incorrect program behavior without visible errors.  
+   **Hỏng dữ liệu âm thầm:** Biến `counter` bị ghi đè một cách vô tình, dẫn đến hành vi sai trong chương trình mà không có lỗi rõ ràng.
+2. **Non-portability:** Code that runs on Cortex-M4 may crash or behave differently on Cortex-M0 or other architectures.  
+   **Không tương thích đa nền tảng:** Mã chạy được trên Cortex-M4 có thể bị lỗi hoặc hoạt động khác trên Cortex-M0 hoặc kiến trúc khác.
+3. **Hard to Debug:** The program appears to run normally, but variables behave incorrectly, making it very hard to trace.  
+   **Khó gỡ lỗi:** Chương trình có vẻ hoạt động bình thường, nhưng biến lại hoạt động sai, rất khó tìm nguyên nhân.
+4. **Undefined Behavior:** According to the C standard, dereferencing a misaligned pointer results in undefined behavior.  
+   **Hành vi không xác định:** Theo chuẩn C, việc truy xuất một con trỏ không được căn chỉnh dẫn đến hành vi không xác định.
+
+**Best Practices to Avoid This:**  
+**Thực hành tốt để tránh điều này:**
+- Never cast raw addresses to pointers without ensuring proper alignment.  
+  Không bao giờ ép kiểu địa chỉ trực tiếp thành con trỏ mà không đảm bảo căn chỉnh.
+- Use `uint8_t*` for byte-wise access if working with unaligned memory.  
+  Sử dụng `uint8_t*` để truy cập từng byte nếu làm việc với bộ nhớ không căn chỉnh.
+- Enable compiler warnings and static analysis tools.  
+  Bật cảnh báo trình biên dịch và sử dụng công cụ phân tích tĩnh.
+- Validate pointer alignment manually or with assertions if needed.  
+  Kiểm tra thủ công hoặc dùng assert để xác thực căn chỉnh con trỏ khi cần.
+
+**Conclusion:**  
+**Kết luận:**
+This is a classic example of how a small oversight in pointer manipulation can lead to serious and subtle bugs in embedded systems. Misaligned access should be avoided or handled with great care.  
+Đây là ví dụ điển hình cho thấy chỉ một sơ suất nhỏ trong việc xử lý con trỏ cũng có thể gây ra lỗi nghiêm trọng và khó phát hiện trong hệ thống nhúng. Truy cập không căn chỉnh nên được tránh hoặc xử lý cẩn thận.
+
+**Note:** This case was derived from an educational video by Quantum Leaps, LLC and recreated using IAR Embedded Workbench.  
+**Lưu ý:** Trường hợp này được lấy từ một video giáo dục của Quantum Leaps, LLC và được tái hiện lại bằng IAR Embedded Workbench.
+
