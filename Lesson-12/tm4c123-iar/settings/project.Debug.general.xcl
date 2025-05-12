@@ -1,0 +1,15 @@
+D:\Software\IAR_Download\arm\bin\armPROC.dll
+
+ D:\Software\IAR_Download\arm\bin\armLMIFTDI.dll
+
+ D:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\c.out
+
+ --plugin=D:\Software\IAR_Download\arm\bin\armLibSupportUniversal.dll
+
+ --device_macro=D:\Software\IAR_Download\arm/config/debugger/TexasInstruments/TM4C123.dmac
+
+ --flash_loader=D:\Software\IAR_Download\arm/config/flashloader/TexasInstruments/FlashTC4_H6_o.board
+
+ 
+
+
