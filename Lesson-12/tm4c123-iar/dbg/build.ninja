@@ -1,0 +1,49 @@
+##IAR Ninja build file
+
+
+#Rules
+rule COMPILER_XCL
+  command = D$:\Software\IAR_Download\common\bin\XclFileGenerator.exe $xclcommand -f "$rspfile_name"
+  description = IAR_NEW_TOOL+++COMPILER_XCL+++$out
+  rspfile = $rspfile_name
+  rspfile_content = $flags
+
+rule INDEXER
+  command = D$:\Software\IAR_Download\common\bin\SourceIndexer.exe $flags
+  depfile = $out.dep
+  deps = gcc
+  description = IAR_NEW_TOOL+++INDEXER+++$out
+
+rule MAKEBROWSE
+  command = D$:\Software\IAR_Download\common\bin\makeBrowseData.exe $flags
+  description = IAR_NEW_TOOL+++MAKEBROWSE+++$out
+
+rule PDBLINK
+  command = D$:\Software\IAR_Download\common\bin\PbdLink.exe $flags
+  description = IAR_NEW_TOOL+++PDBLINK+++$out
+
+
+
+#Build steps
+build D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\delay.xcl : COMPILER_XCL 
+    flags = D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\delay.c -o D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\ --no_unroll --no_inline --no_tbaa --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config D$:\Software\IAR_Download\arm\inc\c\DLib_Config_Normal.h -I D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\..\CMSIS\Include\ -I D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\..\ek-tm4c123gxl\ -Om --predef_macros D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\delay.tmp
+    rspfile_name = D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\delay.xcl.rsp
+    xclcommand = -source_file D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\delay.c -xcl_file D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\delay.xcl -macro_file D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\delay.tmp -icc_path D$:\Software\IAR_Download\arm\bin\iccarm.exe
+
+build D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\main.xcl : COMPILER_XCL 
+    flags = D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\main.c -o D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\ --no_unroll --no_inline --no_tbaa --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config D$:\Software\IAR_Download\arm\inc\c\DLib_Config_Normal.h -I D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\..\CMSIS\Include\ -I D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\..\ek-tm4c123gxl\ -Om --predef_macros D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\main.tmp
+    rspfile_name = D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\main.xcl.rsp
+    xclcommand = -source_file D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\main.c -xcl_file D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\main.xcl -macro_file D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\main.tmp -icc_path D$:\Software\IAR_Download\arm\bin\iccarm.exe
+
+build D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\delay.pbi : INDEXER D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\delay.xcl | D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\delay.c
+    flags = -out=D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\delay.pbi -f D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\delay.xcl
+
+build D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\main.pbi : INDEXER D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\main.xcl | D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\main.c
+    flags = -out=D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\main.pbi -f D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\main.xcl
+
+build D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\project.pbw : MAKEBROWSE D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\project.pbd
+    flags = D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\project.pbd -output D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\project.pbw
+
+build D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\project.pbd : PDBLINK D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\delay.pbi | D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\main.pbi
+    flags = -M D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\project.pbd D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\delay.pbi D$:\Software\IAR_Quantum_Project_Emb\Lesson-12\tm4c123-iar\dbg\main.pbi
+

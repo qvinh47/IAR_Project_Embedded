@@ -1,0 +1,21 @@
+# ninja log v5
+0	95	7687351200000000	D:/Software/Git_Github/modern-embedded-programming-course/lesson-12/tm4c123-iar/dbg/delay.xcl	7423c96433524b51
+4	99	7687351200000000	D:/Software/Git_Github/modern-embedded-programming-course/lesson-12/tm4c123-iar/dbg/main.xcl	5c019fb9c9a1dd44
+96	143	7687351210303656	D:/Software/Git_Github/modern-embedded-programming-course/lesson-12/tm4c123-iar/dbg/delay.pbi	b9f2f4a4976122ea
+100	208	7687351211003642	D:/Software/Git_Github/modern-embedded-programming-course/lesson-12/tm4c123-iar/dbg/main.pbi	ff6f385fff4b9fe3
+209	238	7687351211293651	D:/Software/Git_Github/modern-embedded-programming-course/lesson-12/tm4c123-iar/dbg/project.pbd	559fe6c2b8ee1f24
+239	622	7687351214944417	D:/Software/Git_Github/modern-embedded-programming-course/lesson-12/tm4c123-iar/dbg/project.pbw	c54318092c635e3e
+0	175	7687351313674677	D:/Software/Git_Github/modern-embedded-programming-course/lesson-12/tm4c123-iar/dbg/delay.o	f99c047c534608d4
+4	223	7687351314165527	D:/Software/Git_Github/modern-embedded-programming-course/lesson-12/tm4c123-iar/dbg/main.o	218cb64e74cc4716
+226	277	7687351314868304	D:/Software/Git_Github/modern-embedded-programming-course/lesson-12/tm4c123-iar/dbg/c.out	17bf7c0b48cf776b
+279	341	7687351315579595	D:/Software/Git_Github/modern-embedded-programming-course/lesson-12/tm4c123-iar/dbg/project.bin	86fb40e67180e7ef
+0	80	7687353890000000	D:/Software/IAR_Quantum_Project_Emb/Lesson-12/tm4c123-iar/dbg/delay.xcl	82b7461e976f9ff0
+4	83	7687353890000000	D:/Software/IAR_Quantum_Project_Emb/Lesson-12/tm4c123-iar/dbg/main.xcl	b22211ebd667b34c
+81	121	7687353891130503	D:/Software/IAR_Quantum_Project_Emb/Lesson-12/tm4c123-iar/dbg/delay.pbi	14cdb08b11a89acd
+84	184	7687353891802785	D:/Software/IAR_Quantum_Project_Emb/Lesson-12/tm4c123-iar/dbg/main.pbi	527871bef963e877
+185	210	7687353892062982	D:/Software/IAR_Quantum_Project_Emb/Lesson-12/tm4c123-iar/dbg/project.pbd	de09c7a07b2ea9a4
+211	578	7687353895557989	D:/Software/IAR_Quantum_Project_Emb/Lesson-12/tm4c123-iar/dbg/project.pbw	fb43833d605e2f74
+3	60	7687353908875514	D:/Software/IAR_Quantum_Project_Emb/Lesson-12/tm4c123-iar/dbg/delay.o	76863d9f9f8d02bc
+0	99	7687353909256295	D:/Software/IAR_Quantum_Project_Emb/Lesson-12/tm4c123-iar/dbg/main.o	28260d642e6d3f6a
+102	143	7687353909706651	D:/Software/IAR_Quantum_Project_Emb/Lesson-12/tm4c123-iar/dbg/c.out	f20257915593b06e
+144	151	7687353909865515	D:/Software/IAR_Quantum_Project_Emb/Lesson-12/tm4c123-iar/dbg/project.bin	dc37d49841749182
