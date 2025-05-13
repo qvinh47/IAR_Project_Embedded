@@ -1,0 +1,13 @@
+# ninja log v5
+0	81	7688164990000000	D:/Software/IAR_Quantum_Project_Emb/Lesson-13/dbg/delay.xcl	2c39fcf69c75f907
+4	86	7688164990000000	D:/Software/IAR_Quantum_Project_Emb/Lesson-13/dbg/main.xcl	de4ae80846fe9a31
+84	119	7688164997630636	D:/Software/IAR_Quantum_Project_Emb/Lesson-13/dbg/delay.pbi	7b118144d18c2046
+87	151	7688164998100132	D:/Software/IAR_Quantum_Project_Emb/Lesson-13/dbg/main.pbi	898de235bcd67360
+152	172	7688164998256424	D:/Software/IAR_Quantum_Project_Emb/Lesson-13/dbg/project.pbd	bc5a3b9a6ac1507a
+174	504	7688165001383976	D:/Software/IAR_Quantum_Project_Emb/Lesson-13/dbg/project.pbw	447c0490bfcfac3c
+195	593	7688178986214711	D:/Software/IAR_Quantum_Project_Emb/Lesson-13/dbg/delay.o	ac2ee0a87181bcad
+1	630	7688178986824745	D:/Software/IAR_Quantum_Project_Emb/Lesson-13/dbg/main.o	baba3ea40629a837
+633	892	7688178989544994	D:/Software/IAR_Quantum_Project_Emb/Lesson-13/dbg/c.out	9dc79f35c063f449
+894	1010	7688178990844710	D:/Software/IAR_Quantum_Project_Emb/Lesson-13/dbg/project.bin	2e3981eb439576b
+3	95	7688185763205394	D:/Software/IAR_Quantum_Project_Emb/Lesson-13/dbg/c.out	dfec4fb6fabb0465
+97	112	7688185763415395	D:/Software/IAR_Quantum_Project_Emb/Lesson-13/dbg/project.bin	2e3981eb439576b
