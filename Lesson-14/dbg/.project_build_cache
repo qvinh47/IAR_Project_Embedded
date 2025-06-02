@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BuildDb>
+    <Tool>
+        <Name>linker</Name>
+        <Parent>
+            <Path>D:\Software\IAR_Quantum_Project_Emb\Lesson-14\dbg\c.out</Path>
+            <Output>
+                <Path>D:\Software\IAR_Quantum_Project_Emb\Lesson-14\dbg\c.map</Path>
+            </Output>
+        </Parent>
+    </Tool>
+</BuildDb>
