@@ -1,0 +1,15 @@
+D:\Software\IAR_Quantum_Project_Emb\Lesson-15\tm4c123-iar\dbg\startup_tm4c.pbi: \
+  D:\Software\IAR_Quantum_Project_Emb\Lesson-15\tm4c123-iar\startup_tm4c.c \
+  D:\Software\IAR_Quantum_Project_Emb\Lesson-15\tm4c123-iar\tm4c_cmsis.h \
+  D:\Software\IAR_Quantum_Project_Emb\Lesson-15\tm4c123-iar\..\CMSIS\Include\core_cm4.h \
+  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.2\arm\inc\c\stdint.h \
+  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.2\arm\inc\c\ycheck.h \
+  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.2\arm\inc\c\yvals.h \
+  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.2\arm\inc\c\DLib_Defaults.h \
+  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.2\arm\inc\c\DLib_Config_Normal.h \
+  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.2\arm\inc\c\DLib_Product.h \
+  D:\Software\IAR_Quantum_Project_Emb\Lesson-15\tm4c123-iar\..\CMSIS\Include\cmsis_version.h \
+  D:\Software\IAR_Quantum_Project_Emb\Lesson-15\tm4c123-iar\..\CMSIS\Include\cmsis_compiler.h \
+  D:\Software\IAR_Quantum_Project_Emb\Lesson-15\tm4c123-iar\..\CMSIS\Include\cmsis_iccarm.h \
+  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.2\arm\inc\c\aarch32\iccarm_builtin.h \
+  D:\Software\IAR_Quantum_Project_Emb\Lesson-15\tm4c123-iar\..\CMSIS\Include\mpu_armv7.h

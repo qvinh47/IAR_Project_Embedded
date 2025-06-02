@@ -1,0 +1,335 @@
+###############################################################################
+#
+# IAR ELF Linker V9.40.1.364/W64 for ARM                  02/Jun/2025  20:51:13
+# Copyright 2007-2023 IAR Systems AB.
+#
+#    Output file  =
+#        D:\Software\IAR_Quantum_Project_Emb\Lesson-15\tm4c123-iar\dbg\c.out
+#    Map file     =
+#        D:\Software\IAR_Quantum_Project_Emb\Lesson-15\tm4c123-iar\dbg\c.map
+#    Command line =
+#        -f
+#        D:\Software\IAR_Quantum_Project_Emb\Lesson-15\tm4c123-iar\dbg\c.out.rsp
+#        (D:\Software\IAR_Quantum_Project_Emb\Lesson-15\tm4c123-iar\dbg\bsp.o
+#        D:\Software\IAR_Quantum_Project_Emb\Lesson-15\tm4c123-iar\dbg\delay.o
+#        D:\Software\IAR_Quantum_Project_Emb\Lesson-15\tm4c123-iar\dbg\main.o
+#        D:\Software\IAR_Quantum_Project_Emb\Lesson-15\tm4c123-iar\dbg\startup_tm4c.o
+#        --no_out_extension -o
+#        D:\Software\IAR_Quantum_Project_Emb\Lesson-15\tm4c123-iar\dbg\c.out
+#        --redirect _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb
+#        --map
+#        D:\Software\IAR_Quantum_Project_Emb\Lesson-15\tm4c123-iar\dbg\c.map
+#        --config "C:\Program Files\IAR Systems\Embedded Workbench
+#        9.2\arm/config/linker/TexasInstruments/TM4C123GH6.icf" --entry
+#        __iar_program_start --vfe --text_out locale --cpu=Cortex-M4
+#        --fpu=VFPv4_sp) --dependencies=n
+#        D:\Software\IAR_Quantum_Project_Emb\Lesson-15\tm4c123-iar\dbg\c.out.iar_deps
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__CPP_Runtime   = 1
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because no calls to memory allocation
+functions were found in the application outside of system library
+functions, there are calls to deallocation functions in the
+application, and the application appears to be primarily
+optimized for speed.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x0 { ro section .intvec };
+"P1":  place in [from 0x0 to 0x3'ffff] { ro };
+define block CSTACK with size = 4K, alignment = 8 { };
+define block HEAP with size = 8K, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2000'7fff] {
+          rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+
+  Section            Kind         Address    Size  Object
+  -------            ----         -------    ----  ------
+"A0":                                       0x26c
+  .intvec            const            0x0   0x26c  startup_tm4c.o [1]
+                                  - 0x26c   0x26c
+
+"P1":                                       0x25e
+  .text              ro code        0x26c    0x98  main.o [1]
+  .text              ro code        0x304    0x14  delay.o [1]
+  .text              ro code        0x318    0x80  startup_tm4c.o [1]
+  .text              ro code        0x398    0x2c  bsp.o [1]
+  .text              ro code        0x3c4    0x3a  packbits_init_single.o [4]
+  .text              ro code        0x400    0x28  data_init.o [4]
+  .text              ro code        0x428    0x22  fpinit_M.o [3]
+  .iar.init_table    const          0x44c    0x10  - Linker created -
+  .text              ro code        0x45c    0x1e  cmain.o [4]
+  .text              ro code        0x47a     0x4  low_level_init.o [2]
+  .text              ro code        0x47e     0x4  exit.o [2]
+  .text              ro code        0x484     0xa  cexit.o [4]
+  .text              ro code        0x490     0xc  XXexit.o [4]
+  .text              ro code        0x49c    0x1c  cstartup_M.o [4]
+  .rodata            const          0x4b8     0x0  packbits_init_single.o [4]
+  Initializer bytes  const          0x4b8    0x12  <for P2-1>
+                                  - 0x4ca   0x25e
+
+"P2", part 1 of 2:                           0x24
+  P2-1                        0x2000'0000    0x24  <Init block>
+    .data            inited   0x2000'0000    0x24  main.o [1]
+                            - 0x2000'0024    0x24
+
+"P2", part 2 of 2:                         0x1000
+  CSTACK                      0x2000'0028  0x1000  <Block>
+    CSTACK           uninit   0x2000'0028  0x1000  <Block tail>
+                            - 0x2000'1028  0x1000
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+        0x4ca     0x3'ffff  0x3'fb36
+  0x2000'0024  0x2000'0027       0x4
+  0x2000'1028  0x2000'7fff    0x6fd8
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Copy/packbits (__iar_packbits_init_single3)
+    1 source range, total size 0x12 (50% of destination):
+                0x4b8  0x12
+    1 destination range, total size 0x24:
+          0x2000'0000  0x24
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                  ro code  ro data  rw data
+    ------                  -------  -------  -------
+command line/config:
+    -------------------------------------------------
+    Total:
+
+D:\Software\IAR_Quantum_Project_Emb\Lesson-15\tm4c123-iar\dbg: [1]
+    bsp.o                        44
+    delay.o                      20
+    main.o                      152       18       36
+    startup_tm4c.o              128      620
+    -------------------------------------------------
+    Total:                      344      638       36
+
+dl7M_tln.a: [2]
+    exit.o                        4
+    low_level_init.o              4
+    -------------------------------------------------
+    Total:                        8
+
+m7M_tls.a: [3]
+    fpinit_M.o                   34
+    -------------------------------------------------
+    Total:                       34
+
+rt7M_tl.a: [4]
+    XXexit.o                     12
+    cexit.o                      10
+    cmain.o                      30
+    cstartup_M.o                 28
+    data_init.o                  40
+    packbits_init_single.o       58
+    -------------------------------------------------
+    Total:                      178
+
+    Gaps                          6        2
+    Linker created                        16    4'096
+-----------------------------------------------------
+    Grand Total:                570      656    4'132
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address   Size  Type      Object
+-----                       -------   ----  ----      ------
+.iar.init_table$$Base         0x44c          --   Gb  - Linker created -
+.iar.init_table$$Limit        0x45c          --   Gb  - Linker created -
+?main                         0x45d         Code  Gb  cmain.o [4]
+ADC1Seq0_IRQHandler           0x355    0xa  Code  Wk  startup_tm4c.o [1]
+ADC1Seq1_IRQHandler           0x355    0xa  Code  Wk  startup_tm4c.o [1]
+ADC1Seq2_IRQHandler           0x355    0xa  Code  Wk  startup_tm4c.o [1]
+ADC1Seq3_IRQHandler           0x355    0xa  Code  Wk  startup_tm4c.o [1]
+ADCSeq0_IRQHandler            0x355    0xa  Code  Wk  startup_tm4c.o [1]
+ADCSeq1_IRQHandler            0x355    0xa  Code  Wk  startup_tm4c.o [1]
+ADCSeq2_IRQHandler            0x355    0xa  Code  Wk  startup_tm4c.o [1]
+ADCSeq3_IRQHandler            0x355    0xa  Code  Wk  startup_tm4c.o [1]
+BusFault_Handler              0x33d    0xa  Code  Gb  startup_tm4c.o [1]
+CAN0_IRQHandler               0x355    0xa  Code  Wk  startup_tm4c.o [1]
+CAN1_IRQHandler               0x355    0xa  Code  Wk  startup_tm4c.o [1]
+CAN2_IRQHandler               0x355    0xa  Code  Wk  startup_tm4c.o [1]
+CSTACK$$Base            0x2000'0028          --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'1028         Data  Gb  - Linker created -
+Comp0_IRQHandler              0x355    0xa  Code  Wk  startup_tm4c.o [1]
+Comp1_IRQHandler              0x355    0xa  Code  Wk  startup_tm4c.o [1]
+Comp2_IRQHandler              0x355    0xa  Code  Wk  startup_tm4c.o [1]
+DebugMon_Handler              0x355    0xa  Code  Wk  startup_tm4c.o [1]
+EBI0_IRQHandler               0x355    0xa  Code  Wk  startup_tm4c.o [1]
+FPU_IRQHandler                0x355    0xa  Code  Wk  startup_tm4c.o [1]
+Fan0_IRQHandler               0x355    0xa  Code  Wk  startup_tm4c.o [1]
+FlashCtrl_IRQHandler          0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortA_IRQHandler          0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortB_IRQHandler          0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortC_IRQHandler          0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortD_IRQHandler          0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortE_IRQHandler          0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortF_IRQHandler          0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortG_IRQHandler          0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortH_IRQHandler          0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortJ_IRQHandler          0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortK_IRQHandler          0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortL_IRQHandler          0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortM_IRQHandler          0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortN_IRQHandler          0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortP0_IRQHandler         0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortP1_IRQHandler         0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortP2_IRQHandler         0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortP3_IRQHandler         0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortP4_IRQHandler         0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortP5_IRQHandler         0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortP6_IRQHandler         0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortP7_IRQHandler         0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortQ0_IRQHandler         0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortQ1_IRQHandler         0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortQ2_IRQHandler         0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortQ3_IRQHandler         0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortQ4_IRQHandler         0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortQ5_IRQHandler         0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortQ6_IRQHandler         0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortQ7_IRQHandler         0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortR_IRQHandler          0x355    0xa  Code  Wk  startup_tm4c.o [1]
+GPIOPortS_IRQHandler          0x355    0xa  Code  Wk  startup_tm4c.o [1]
+HardFault_Handler             0x319    0xa  Code  Gb  startup_tm4c.o [1]
+Hibernate_IRQHandler          0x355    0xa  Code  Wk  startup_tm4c.o [1]
+I2C0_IRQHandler               0x355    0xa  Code  Wk  startup_tm4c.o [1]
+I2C1_IRQHandler               0x355    0xa  Code  Wk  startup_tm4c.o [1]
+I2C2_IRQHandler               0x355    0xa  Code  Wk  startup_tm4c.o [1]
+I2C3_IRQHandler               0x355    0xa  Code  Wk  startup_tm4c.o [1]
+I2C4_IRQHandler               0x355    0xa  Code  Wk  startup_tm4c.o [1]
+I2C5_IRQHandler               0x355    0xa  Code  Wk  startup_tm4c.o [1]
+I2S0_IRQHandler               0x355    0xa  Code  Wk  startup_tm4c.o [1]
+LPC0_IRQHandler               0x355    0xa  Code  Wk  startup_tm4c.o [1]
+MemManage_Handler             0x331    0xa  Code  Gb  startup_tm4c.o [1]
+NMI_Handler                   0x323    0x8  Code  Gb  startup_tm4c.o [1]
+PECI0_IRQHandler              0x355    0xa  Code  Wk  startup_tm4c.o [1]
+PWM1Fault_IRQHandler          0x355    0xa  Code  Wk  startup_tm4c.o [1]
+PWM1Gen0_IRQHandler           0x355    0xa  Code  Wk  startup_tm4c.o [1]
+PWM1Gen1_IRQHandler           0x355    0xa  Code  Wk  startup_tm4c.o [1]
+PWM1Gen2_IRQHandler           0x355    0xa  Code  Wk  startup_tm4c.o [1]
+PWM1Gen3_IRQHandler           0x355    0xa  Code  Wk  startup_tm4c.o [1]
+PWMFault_IRQHandler           0x355    0xa  Code  Wk  startup_tm4c.o [1]
+PWMGen0_IRQHandler            0x355    0xa  Code  Wk  startup_tm4c.o [1]
+PWMGen1_IRQHandler            0x355    0xa  Code  Wk  startup_tm4c.o [1]
+PWMGen2_IRQHandler            0x355    0xa  Code  Wk  startup_tm4c.o [1]
+PWMGen3_IRQHandler            0x355    0xa  Code  Wk  startup_tm4c.o [1]
+PendSV_Handler                0x355    0xa  Code  Wk  startup_tm4c.o [1]
+QEI0_IRQHandler               0x355    0xa  Code  Wk  startup_tm4c.o [1]
+QEI1_IRQHandler               0x355    0xa  Code  Wk  startup_tm4c.o [1]
+QEI2_IRQHandler               0x355    0xa  Code  Wk  startup_tm4c.o [1]
+Region$$Table$$Base           0x44c          --   Gb  - Linker created -
+Region$$Table$$Limit          0x45c          --   Gb  - Linker created -
+SSI0_IRQHandler               0x355    0xa  Code  Wk  startup_tm4c.o [1]
+SSI1_IRQHandler               0x355    0xa  Code  Wk  startup_tm4c.o [1]
+SSI2_IRQHandler               0x355    0xa  Code  Wk  startup_tm4c.o [1]
+SSI3_IRQHandler               0x355    0xa  Code  Wk  startup_tm4c.o [1]
+SVC_Handler                   0x355    0xa  Code  Wk  startup_tm4c.o [1]
+SysCtrl_IRQHandler            0x355    0xa  Code  Wk  startup_tm4c.o [1]
+SysTick_Handler               0x3c3    0x2  Code  Gb  bsp.o [1]
+Timer0A_IRQHandler            0x355    0xa  Code  Wk  startup_tm4c.o [1]
+Timer0B_IRQHandler            0x355    0xa  Code  Wk  startup_tm4c.o [1]
+Timer1A_IRQHandler            0x355    0xa  Code  Wk  startup_tm4c.o [1]
+Timer1B_IRQHandler            0x355    0xa  Code  Wk  startup_tm4c.o [1]
+Timer2A_IRQHandler            0x355    0xa  Code  Wk  startup_tm4c.o [1]
+Timer2B_IRQHandler            0x355    0xa  Code  Wk  startup_tm4c.o [1]
+Timer3A_IRQHandler            0x355    0xa  Code  Wk  startup_tm4c.o [1]
+Timer3B_IRQHandler            0x355    0xa  Code  Wk  startup_tm4c.o [1]
+Timer4A_IRQHandler            0x355    0xa  Code  Wk  startup_tm4c.o [1]
+Timer4B_IRQHandler            0x355    0xa  Code  Wk  startup_tm4c.o [1]
+Timer5A_IRQHandler            0x355    0xa  Code  Wk  startup_tm4c.o [1]
+Timer5B_IRQHandler            0x355    0xa  Code  Wk  startup_tm4c.o [1]
+UART0_IRQHandler              0x355    0xa  Code  Wk  startup_tm4c.o [1]
+UART1_IRQHandler              0x355    0xa  Code  Wk  startup_tm4c.o [1]
+UART2_IRQHandler              0x355    0xa  Code  Wk  startup_tm4c.o [1]
+UART3_IRQHandler              0x355    0xa  Code  Wk  startup_tm4c.o [1]
+UART4_IRQHandler              0x355    0xa  Code  Wk  startup_tm4c.o [1]
+UART5_IRQHandler              0x355    0xa  Code  Wk  startup_tm4c.o [1]
+UART6_IRQHandler              0x355    0xa  Code  Wk  startup_tm4c.o [1]
+UART7_IRQHandler              0x355    0xa  Code  Wk  startup_tm4c.o [1]
+USB0_IRQHandler               0x355    0xa  Code  Wk  startup_tm4c.o [1]
+Unused_Handler                0x355    0xa  Code  Gb  startup_tm4c.o [1]
+UsageFault_Handler            0x349    0xa  Code  Gb  startup_tm4c.o [1]
+Watchdog_IRQHandler           0x355    0xa  Code  Wk  startup_tm4c.o [1]
+WideTimer0A_IRQHandler        0x355    0xa  Code  Wk  startup_tm4c.o [1]
+WideTimer0B_IRQHandler        0x355    0xa  Code  Wk  startup_tm4c.o [1]
+WideTimer1A_IRQHandler        0x355    0xa  Code  Wk  startup_tm4c.o [1]
+WideTimer1B_IRQHandler        0x355    0xa  Code  Wk  startup_tm4c.o [1]
+WideTimer2A_IRQHandler        0x355    0xa  Code  Wk  startup_tm4c.o [1]
+WideTimer2B_IRQHandler        0x355    0xa  Code  Wk  startup_tm4c.o [1]
+WideTimer3A_IRQHandler        0x355    0xa  Code  Wk  startup_tm4c.o [1]
+WideTimer3B_IRQHandler        0x355    0xa  Code  Wk  startup_tm4c.o [1]
+WideTimer4A_IRQHandler        0x355    0xa  Code  Wk  startup_tm4c.o [1]
+WideTimer4B_IRQHandler        0x355    0xa  Code  Wk  startup_tm4c.o [1]
+WideTimer5A_IRQHandler        0x355    0xa  Code  Wk  startup_tm4c.o [1]
+WideTimer5B_IRQHandler        0x355    0xa  Code  Wk  startup_tm4c.o [1]
+__NVIC_SystemReset            0x399   0x1a  Code  Lc  bsp.o [1]
+__cmain                       0x45d         Code  Gb  cmain.o [4]
+__exit                        0x491         Code  Gb  XXexit.o [4]
+__iar_data_init3              0x401   0x28  Code  Gb  data_init.o [4]
+__iar_init_vfp                0x429         Code  Gb  fpinit_M.o [3]
+__iar_packbits_init_single3
+                              0x3c5   0x3a  Code  Gb  packbits_init_single.o [4]
+__iar_program_start           0x49d         Code  Gb  cstartup_M.o [4]
+__low_level_init              0x47b    0x4  Code  Gb  low_level_init.o [2]
+__vector_table                  0x0  0x26c  Data  Gb  startup_tm4c.o [1]
+_call_main                    0x469         Code  Gb  cmain.o [4]
+_exit                         0x485         Code  Gb  cexit.o [4]
+assert_failed                 0x3bd    0x6  Code  Gb  bsp.o [1]
+delay                         0x305   0x14  Code  Gb  delay.o [1]
+exit                          0x47f    0x4  Code  Gb  exit.o [2]
+main                          0x26d   0x98  Code  Gb  main.o [1]
+p1                      0x2000'0000    0x4  Data  Gb  main.o [1]
+p2                      0x2000'0004    0x4  Data  Gb  main.o [1]
+t                       0x2000'0018    0xc  Data  Gb  main.o [1]
+uDMAError_IRQHandler          0x355    0xa  Code  Wk  startup_tm4c.o [1]
+uDMAST_IRQHandler             0x355    0xa  Code  Wk  startup_tm4c.o [1]
+w                       0x2000'0008    0x8  Data  Gb  main.o [1]
+w2                      0x2000'0010    0x8  Data  Gb  main.o [1]
+
+
+[1] = D:\Software\IAR_Quantum_Project_Emb\Lesson-15\tm4c123-iar\dbg
+[2] = dl7M_tln.a
+[3] = m7M_tls.a
+[4] = rt7M_tl.a
+
+    570 bytes of readonly  code memory
+    656 bytes of readonly  data memory
+  4'132 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

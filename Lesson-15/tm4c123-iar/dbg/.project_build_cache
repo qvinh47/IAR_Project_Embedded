@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BuildDb>
+    <Tool>
+        <Name>linker</Name>
+        <Parent>
+            <Path>D:\Software\IAR_Quantum_Project_Emb\Lesson-15\tm4c123-iar\dbg\c.out</Path>
+            <Output>
+                <Path>D:\Software\IAR_Quantum_Project_Emb\Lesson-15\tm4c123-iar\dbg\c.map</Path>
+            </Output>
+        </Parent>
+        <Parent>
+            <Path>D:\Software\modern-embedded-programming-course\lesson-15\tm4c123-iar\dbg\c.out</Path>
+            <Output>
+                <Path>D:\Software\modern-embedded-programming-course\lesson-15\tm4c123-iar\dbg\c.map</Path>
+            </Output>
+        </Parent>
+    </Tool>
+</BuildDb>
